@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>index</title>
+    </head>
+    <body>
+        <h1>Welcome to Pets</h1>
+
+        <p>num is {{num}}</p>
+        <p>color is {{color}}</p>
+
+        {% for user in users %}
+            <p>{{user.fname}} Id: {{user.id}}</p>
+        {% endfor %}
+
+        {% for pet in pets %}
+            <p>{{pet.name}} Id: {{pet.id}}</p>
+        {% endfor %}
+
+    </body>
+</html>
