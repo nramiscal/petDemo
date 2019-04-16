@@ -8,13 +8,16 @@ def index(request):
     # pet = Pet.objects.create(name="Bubbles", breed="Husky", species="dog", age=5, owner_id=user.id)
 
     # UPDATING A USER'S FIRST NAME
-    user3 = User.objects.get(id=3)
-    user3.fname = "RJ"
-    user3.save()
+    # user3 = User.objects.get(id=3)
+    # user3.fname = "RJ"
+    # user3.save()
 
     # GETTING ALL THE USERS AND ALL THE PETS
-    users = User.objects.all()
-    pets = Pet.objects.all()
+    # users = User.objects.all()
+    # pets = Pet.objects.all()
+
+    # GET ALL THE PETS OF ONE USER
+    petsOfUser1 = User.objects.get(id=1).pets.all()
 
 
     context = {
@@ -22,8 +25,9 @@ def index(request):
         "color": "red",
         # "user": user,
         # "pet": pet,
-        "users": users,
-        "pets": pets
+        # "users": users,
+        # "pets": pets,
+        "petsOfUser1": petsOfUser1
     }
 
     return render(request, 'index.html', context)
