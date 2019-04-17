@@ -7,18 +7,19 @@
     <body>
         <h1>Welcome to Pets</h1>
 
-        <p>num is {{num}}</p>
-        <p>color is {{color}}</p>
+        <form class="" action="/process" method="post">
+            {% csrf_token %}
+            <input type="text" name="name" placeholder="Name"><br>
+            <input type="text" name="species" placeholder="Species"><br>
+            <input type="text" name="breed" placeholder="Breed"><br>
+            <input type="number" name="age" placeholder="Age"><br>
+            <input type="submit" name="" value="Submit">
+        </form>
 
-        {% for user in users %}
-            <p>{{user.fname}} Id: {{user.id}}</p>
-        {% endfor %}
-
-        {% for pet in pets %}
-            <p>{{pet.name}} Id: {{pet.id}}</p>
-        {% endfor %}
-
-        <p>{{petsOfUser1}}</p>
-
+        {% if messages %}
+                {% for message in messages %}
+                <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                {% endfor %}
+        {% endif %}
     </body>
 </html>
